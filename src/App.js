@@ -1,23 +1,14 @@
-import logo from './logo.svg';
 import './App.css';
-
+import HorizontalNav from './Components/HorizontalNav';
+import VerticalNav from './Components/VerticalNav';
+import CardView from './Components/cards';
+import LoginPage from './pages/login';
+import { Card } from 'antd';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        {/* <CardView cardInfo={{title:"some TExt",description:"some desc",width:240}} /> */}
+        <LoginPage/>
     </div>
   );
 }
