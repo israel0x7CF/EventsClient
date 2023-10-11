@@ -2,7 +2,7 @@ import axios from "axios";
 import { base_url } from "../constants";
 
 export const createOrganizer = async (payload) => {
-  const response = await axios.post(base_url + "/organizer");
+  const response = await axios.post(base_url + "/organizer",payload);
   return response.data;
 };
 export const getAllOrganizers = async () => {
