@@ -1,14 +1,17 @@
 import { useState, useEffect } from "react";
-import { Row, Col, Form, Input, Button,Space,Typography } from "antd";
+import { Row, Col, Form, Input, Button, Space, Typography } from "antd";
 import "../styles/login.css";
 const SignUp = () => {
-    const {Title} = Typography
+  const { Title } = Typography;
   return (
     <div className="centered-container">
       <Form>
         <Title>Events IO</Title>
         <Form.Item name="username" label="username">
           <Input />
+        </Form.Item>
+        <Form.Item name="password" label="password">
+          <Input.Password />
         </Form.Item>
         <Form.Item name="phone" label="Phone Number">
           <Space.Compact>

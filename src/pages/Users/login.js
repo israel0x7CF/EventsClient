@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Row, Col, Form, Input,Button } from "antd";
 import FormItem from "antd/es/form/FormItem";
-import '../styles/login.css'
+import '../../styles/login.css'
 const LoginPage = () => {
   return (
     <div className="centered-container">

@@ -1,33 +1,52 @@
 import "./App.css";
-import HorizontalNav from "./Components/HorizontalNav";
-import VerticalNav from "./Components/VerticalNav";
-import CardView from "./Components/cards";
-import LoginPage from "./pages/login";
-import SignUp from "./pages/signup";
-import { Card } from "antd";
+import OrganizerList from "./pages/Organizers/OrganizerLIst";
+
 import UserList from "./pages/Users/UserList";
+import Edit from "./pages/Users/UserSetting";
 function App() {
+  // const data = [
+  //   {
+  //     id: 1,
+  //     name: "ken",
+  //     bio: "Lorem Ipsum",
+  //   },
+  //   {
+  //     id: 2,
+  //     name: "ryu",
+  //     bio: "Lorem Ipsum",
+  //   },
+  //   {
+  //     id: 3,
+  //     name: "Jane",
+  //     bio: "Lorem Ipsum",
+  //   },
+  // ];
   const data = [
     {
-      id: 1,
-      name: "ken",
-      bio: "Lorem Ipsum",
+      name: "west London",
+      description: "events from west london",
+      followers: "12",
     },
     {
-      id: 2,
-      name: "ryu",
-      bio: "Lorem Ipsum",
+      name: "west London",
+      description: "events from west london",
+      followers: "12",
     },
     {
-      id: 3,
-      name: "Jane",
-      bio: "Lorem Ipsum",
+      name: "west London",
+      description: "events from west london",
+      followers: "12",
+    },
+    {
+      name: "west London",
+      description: "events from west london",
+      followers: "12",
     },
   ];
   return (
     <div className="App">
       {/* <CardView cardInfo={{title:"some TExt",description:"some desc",width:240}} /> */}
-      <UserList users={data} />
+      <OrganizerList data={data} />
     </div>
   );
 }
