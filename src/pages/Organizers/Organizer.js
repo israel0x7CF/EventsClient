@@ -1,0 +1,2 @@
+
+//after redux setup

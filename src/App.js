@@ -1,14 +1,14 @@
 import { useState } from "react";
 import "./App.css";
 import SelectionField from "./Components/SelectionField";
+import NewEvent from "./pages/Event/newEvent";
 import OrganizerList from "./pages/Organizers/OrganizerLIst";
-
 import UserList from "./pages/Users/UserList";
 import Edit from "./pages/Users/UserSetting";
 function App() {
   const [some,setSome] = useState("")
-  const changeEvent = ()=>{
-    setSome("HERE WE GO , FUCK ODOO!")
+  const changeEvent = (value)=>{
+    setSome(value)
     console.log(some)
   }
   const data = [
@@ -51,8 +51,8 @@ function App() {
   return (
     <div className="App">
       {/* <CardView cardInfo={{title:"some TExt",description:"some desc",width:240}} /> */}
-      <SelectionField data={data} setState={setSome}/>
-      {console.log(some)}
+      <NewEvent />
+      
     </div>
   );
 }
