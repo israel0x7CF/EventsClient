@@ -5,7 +5,9 @@ import NewEvent from "./pages/Event/newEvent";
 import OrganizerList from "./pages/Organizers/OrganizerLIst";
 import UserList from "./pages/Users/UserList";
 import Edit from "./pages/Users/UserSetting";
+import Home from "./pages/home/home";
 function App() {
+
   const [some,setSome] = useState("")
   const changeEvent = (value)=>{
     setSome(value)
