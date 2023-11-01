@@ -6,6 +6,7 @@ import OrganizerList from "./pages/Organizers/OrganizerLIst";
 import UserList from "./pages/Users/UserList";
 import Edit from "./pages/Users/UserSetting";
 import Home from "./pages/home/home";
+import CreateNewTheme from "./pages/themes/themes";
 function App() {
 
   const [some,setSome] = useState("")
@@ -53,7 +54,7 @@ function App() {
   return (
     <div className="App">
       {/* <CardView cardInfo={{title:"some TExt",description:"some desc",width:240}} /> */}
-      <NewEvent />
+      <Home />
       
     </div>
   );

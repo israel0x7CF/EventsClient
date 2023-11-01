@@ -1,55 +1,58 @@
-import React from 'react';
+import React from "react";
 import {
-  AppstoreOutlined,
-  BarChartOutlined,
-  CloudOutlined,
-  ShopOutlined,
-  TeamOutlined,
-  UploadOutlined,
-  UserOutlined,
-  VideoCameraOutlined,
-} from '@ant-design/icons';
-import { Layout, Menu, theme } from 'antd';
+  HomeOutlined,
+  CalendarOutlined,
+  PushpinOutlined,
+  SettingOutlined,
+} from "@ant-design/icons";
+import { Layout, Menu, theme } from "antd";
 const { Header, Content, Footer, Sider } = Layout;
-const items = [
-  UserOutlined,
-  VideoCameraOutlined,
-  UploadOutlined,
-  BarChartOutlined,
-  CloudOutlined,
-  AppstoreOutlined,
-  TeamOutlined,
-  ShopOutlined,
-].map((icon, index) => ({
-  key: String(index + 1),
-  icon: React.createElement(icon),
-  label: `nav ${index + 1}`,
-}));
-const Home = () => {
+const App = () => {
   const {
     token: { colorBgContainer },
   } = theme.useToken();
+  const pages = [
+    { name: "Home", icon: <HomeOutlined /> },
+    { name: "Organizers", icon: <CalendarOutlined /> },
+    { name: "Events", icon: <PushpinOutlined /> },
+    { name: "Settings", icon: <SettingOutlined /> },
+    
+  ];
+  const handleSelect = (e)=>{
+    console.log(`SAY CHEESE${e.target}`)
+
+  }
   return (
-    <Layout hasSider>
+    <Layout>
       <Sider
-        style={{
-          overflow: 'auto',
-          height: '100vh',
-          position: 'fixed',
-          left: 0,
-          top: 0,
-          bottom: 0,
+        style={{ height: "100vh", padding: "100px 0 0 0" }}
+        breakpoint="lg"
+        collapsedWidth="0"
+        onBreakpoint={(broken) => {
+          console.log(broken);
+        }}
+        onCollapse={(collapsed, type) => {
+          console.log(collapsed, type);
         }}
       >
         <div className="demo-logo-vertical" />
-        <Menu theme="dark" mode="inline" defaultSelectedKeys={['4']} items={items} />
+        <Menu
+          theme="dark"
+          mode="inline"
+          defaultSelectedKeys={["4"]}
+          onSelect={handleSelect}
+          name="Deezz"
+        >
+          {
+            pages.map((page,index)=>{
+              return(
+                <Menu.Item icon={page.icon} key={index} name={index}>{page.name}</Menu.Item>
+              )
+            })
+          }
+        </Menu>
       </Sider>
-      <Layout
-        className="site-layout"
-        style={{
-          marginLeft: 200,
-        }}
-      >
+      <Layout>
         <Header
           style={{
             padding: 0,
@@ -58,37 +61,22 @@ const Home = () => {
         />
         <Content
           style={{
-            margin: '24px 16px 0',
-            overflow: 'initial',
+            margin: "24px 16px 0",
           }}
         >
           <div
             style={{
               padding: 24,
-              textAlign: 'center',
+              minHeight: 360,
               background: colorBgContainer,
             }}
           >
-            <p>long content</p>
-            {
-              // indicates very long content
-              Array.from(
-                {
-                  length: 100,
-                },
-                (_, index) => (
-                  <React.Fragment key={index}>
-                    {index % 20 === 0 && index ? 'more' : '...'}
-                    <br />
-                  </React.Fragment>
-                ),
-              )
-            }
+            content
           </div>
         </Content>
         <Footer
           style={{
-            textAlign: 'center',
+            textAlign: "center",
           }}
         >
           Ant Design ©2023 Created by Ant UED
@@ -97,4 +85,4 @@ const Home = () => {
     </Layout>
   );
 };
-export default Home;
+export default App;

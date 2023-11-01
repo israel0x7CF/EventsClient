@@ -13,8 +13,7 @@ export const getEventById = async (id)=>{
 }
 
 export const createEvent = async (payload,id=1) =>{
-    // localhost:8080/api/v1/student?courseId=10
-    console.log(eventsBaseUrl)
+
     const eventResponse = await axios.post(eventsBaseUrl+`?organizerId=${id}`,payload)
     return eventResponse
 }
