@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   HomeOutlined,
   CalendarOutlined,
@@ -6,21 +6,31 @@ import {
   SettingOutlined,
 } from "@ant-design/icons";
 import { Layout, Menu, theme } from "antd";
+import LoginPage from "../Users/login";
+import OrganizerList from "../Organizers/OrganizerLIst";
+import EventsList from "../Event/ListEvents";
+import EditSetting from "../Users/UserSetting";
 const { Header, Content, Footer, Sider } = Layout;
 const App = () => {
+  const [selected, setSelected] = useState('1');
   const {
     token: { colorBgContainer },
   } = theme.useToken();
   const pages = [
-    { name: "Home", icon: <HomeOutlined /> },
-    { name: "Organizers", icon: <CalendarOutlined /> },
-    { name: "Events", icon: <PushpinOutlined /> },
-    { name: "Settings", icon: <SettingOutlined /> },
-    
+    { label: "Home", icon: <HomeOutlined />, key: "1" },
+    { label: "Organizers", icon: <CalendarOutlined />, key: "2" },
+    { label: "Events", icon: <PushpinOutlined />, key: "3" },
+    { label: "Settings", icon: <SettingOutlined />, key: "4" },
   ];
-  const handleSelect = (e)=>{
-    console.log(`SAY CHEESE${e.target}`)
-
+  const renderContent = ()=>{
+    switch (selected){
+      case '1':
+        return <EventsList />
+      case '2':
+        return <OrganizerList />
+      case '4':
+        return <EditSetting />
+    }
   }
   return (
     <Layout>
@@ -35,22 +45,17 @@ const App = () => {
           console.log(collapsed, type);
         }}
       >
+        <h1>Events.IO</h1>
         <div className="demo-logo-vertical" />
         <Menu
           theme="dark"
           mode="inline"
-          defaultSelectedKeys={["4"]}
-          onSelect={handleSelect}
-          name="Deezz"
-        >
-          {
-            pages.map((page,index)=>{
-              return(
-                <Menu.Item icon={page.icon} key={index} name={index}>{page.name}</Menu.Item>
-              )
-            })
-          }
-        </Menu>
+          defaultSelectedKeys={selected}
+          items={pages}
+          onSelect={(key) => {
+            setSelected(key.key)
+          }}
+        ></Menu>
       </Sider>
       <Layout>
         <Header
@@ -71,7 +76,7 @@ const App = () => {
               background: colorBgContainer,
             }}
           >
-            content
+            {renderContent()}
           </div>
         </Content>
         <Footer

@@ -1,12 +1,7 @@
 import { useState } from "react";
 import "./App.css";
-import SelectionField from "./Components/SelectionField";
-import NewEvent from "./pages/Event/newEvent";
-import OrganizerList from "./pages/Organizers/OrganizerLIst";
-import UserList from "./pages/Users/UserList";
-import Edit from "./pages/Users/UserSetting";
 import Home from "./pages/home/home";
-import CreateNewTheme from "./pages/themes/themes";
+
 function App() {
 
   const [some,setSome] = useState("")

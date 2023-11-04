@@ -10,7 +10,7 @@ import { newTheme } from "../../api/themes";
 const CreateNewTheme = () => {
   const [theme, setTheme] = useState({
     theme: "",
-    Discrpiton: "Discrpiton",
+    Discrpiton: " ",
   });
   const onFormChange = (e) => {
     setTheme({

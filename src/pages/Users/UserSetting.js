@@ -3,11 +3,11 @@ import { Row, Col, Form, Input, Button, Space, Typography } from "antd";
 import "../../styles/login.css";
 
 //server side validation beacuse
-const Edit = () => {
+const EditSetting = () => {
   const { Title } = Typography;
 
   return (
-    <div className="centered-container">
+    <div >
       <Form>
         <Title>Your Account</Title>
         <Form.Item name="username" label="username">
@@ -59,8 +59,13 @@ const Edit = () => {
             />
           </Space.Compact>
         </Form.Item>
+        <Form.Item>
+          <Button>Update</Button>
+          -
+          <Button>Cancel</Button>
+        </Form.Item>
       </Form>
     </div>
   );
 };
-export default Edit;
+export default EditSetting;
